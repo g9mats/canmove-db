@@ -1,0 +1,37 @@
+<?php
+// Creator: Mats J Svensson, CAnMove
+
+// Define common variables
+$CMProdHost="prodserver.canmove.org.country"; // CAnMove production hostname
+$CMDevHost="devserver.canmove.org.country"; // CAnMove development hostname
+if (php_uname('n')=="prodserver.canmove.org.country") {
+	$CMSite="Production"; // CAnMove site
+	$CMServer="prodserver.canmove.org.country"; // CAnMove webserver
+	$WebRoot="http://".$CMServer; // Web root
+	$DrRoot="http://".$CMServer."/canmove"; // Drupal web root
+	$CMRoot="/var/www/html"; // CAnMove file tree root
+	$DBRoot="/var/www/html/db"; // CAnMove database file tree root
+	$DataRoot="/home/sys/canmove/data"; // CAnMove data files root
+	$CMDatabase="canmove"; // CAnMove database
+	$DrDatabase="drupal"; // Drupal database
+	}
+else {
+	$CMSite="Development"; // CAnMove site
+	$CMServer="devserver.canmove.org.country"; // CAnMove webserver
+	$WebRoot="http://".$CMServer; // Web root
+	$DrRoot="http://".$CMServer."/canmove"; // Drupal web root
+	$CMRoot="/var/www/html"; // CAnMove file tree root
+	$DBRoot="/var/www/html/db"; // CAnMove database file tree root
+	$DataRoot="/home/sys/canmove/data"; // CAnMove data files root
+	$CMDatabase="canmove"; // CAnMove database
+	$DrDatabase="drupal"; // Drupal database
+	}
+$CMPortal="http://".$CMServer."/db/portal.php"; // CAnMove web portal
+$Database=$CMDatabase; // Default database
+$Username="canmove"; // Default username
+
+// Define background colours for table rows
+$EVENROW="#ccecff";
+$ODDROW="#ffffff";
+
+?>
