@@ -10,6 +10,6 @@ create table p_nbl_condition
 	condition_value		varchar(50) not null,
 unique (context_id, condition_type, condition_value)
 );
-insert into x_table (name) select distinct 'p_nbl_condition_value' from x_table
-where not exists (select 1 from x_table where name='p_nbl_condition_value');
-update x_table set version='1.0' where name='p_nbl_condition_value';
+insert into x_table (name) select distinct 'p_nbl_condition' from x_table
+where not exists (select 1 from x_table where name='p_nbl_condition');
+update x_table set version='1.0' where name='p_nbl_condition';
