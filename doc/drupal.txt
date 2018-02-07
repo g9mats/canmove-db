@@ -124,7 +124,7 @@ create user drupowner with password '<password>';
 . E-mail: <mail address>
 
 - Create soft link for easy access to CAnMove settings file
-. ln -s /var/.../lib/settings.php /usr/share/drupal7/canmove.php
+. ln -s /var/.../lib/settings.php /usr/share/drupal7/canmove.inc
 
 - Setup theme
 . Copy /usr/share/drupal7/themes/bartik to /etc/drupal7/all/themes/lubartik
