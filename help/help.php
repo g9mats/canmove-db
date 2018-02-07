@@ -54,6 +54,7 @@ This is the user help pages. Please select a help topic below.
 <a href="<?php echo $DrAction ?>?topic=data_access">Data Access</a><br/>
 <a href="<?php echo $DrAction ?>?topic=data_input">Data Input</a><br/>
 <a href="<?php echo $DrAction ?>?topic=data_output">Data Output</a><br/>
+<a href="<?php echo $DrAction ?>?topic=system_requirements">System Requirements</a><br/>
 <?php
 }
 ?>
