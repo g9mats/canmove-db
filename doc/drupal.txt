@@ -1,0 +1,134 @@
+- Install Drupal
+. yum install drupal7
+
+. Edit /etc/php.ini
+expose_php = off
+allow_url_fopen = off
+
+- Setup Drupal
+. psql -U postgres
+create database drupal;
+create user drupowner with password '<password>';
+- Edit /etc/httpd/conf.d/drupal7.conf
+  Update "Alias /canmove /usr/share/drupal7"
+  Insert "Require all granted" just below "AllowOverride All"
+- Edit /etc/httpd/conf.d/drupal7-site.htaccess
+  Insert "php_value memory_limit 256M" below comment "Override PHP settings ..."
+  Update "RewriteBase /canmove" below comment "Modify the RewriteBase if ..."
+- Restart Apache
+. systemctl stop httpd
+. systemctl start httpd
+- Prepare Drupal file tree
+. chown -R apache.apache /etc/drupal7/all
+. chown apache /etc/drupal7/default
+. chmod 755 /etc/drupal7/default
+. cd /etc/drupal7/default
+. cp default.settings.php settings.php
+. chown apache settings.php
+- Run install.php from browser: http://<server>/canmove
+  Choose profile: Minimal
+  Choose language: English
+  Database name: drupal
+  Database username: drupowner
+  Database password: ?
+  ADVANCED OPTIONS:
+  Table prefix: drupal_
+  Site name: CAnMove Database
+  Site e-mail address: CAnMove@<server>
+  Username: admin
+  E-mail address: <mail address>
+  Password: <password>
+  Default country: Sweden
+  Default time zone: Europe/Paris, +0100
+  Update notifications:
+    Check for updates automatically
+    Receive e-mail notifications
+- Protect settings.php
+. chown root /etc/drupal7/default
+. chmod 555 /etc/drupal7/default
+. chown apache.root /etc/drupal7/default/settings.php
+. chmod 400 /etc/drupal7/default/settings.php
+
+- Configure Drupal Site
+. Site information
+  Site name: CAnMove Database
+  Slogan: Centre for Animal Movement Research
+. Configuration / People / Account settings
+  Who can register accounts?: Administrators only
+
+- Appearance
+. Logo image settings
+  Path to custom logo: sites/default/lu.png
+. Shortcut icon settings
+  Path to custom icon: sites/default/lu.ico
+
+- Enable Modules
+. Menu
+. Path
+. Administration Development tools
+. Administration menu
+. Administration menu Toolbar style
+. Administration theme
+
+- Create role developer
+. Give developer all permissions except Change/Cancel own username/account
+
+- Download modules
+. Administration menu 7.x-3.0-rc5
+. Administration theme 7.x-1.0
+. Nodeaccess 7.x-1.4
+. CAS 7.x-1.4
+. phpCAS 1.3.4 (put it in sites/all/modules/CAS-1.3.4)
+
+- Configure Nodeaccess
+. Allowed Roles: anonymous user, authenticated user, developer
+
+- Configure CAS
+. Library (phpCAS)
+  Library directory: sites/all/modules/CAS-1.3.4
+. CAS Server
+  Version: 2.0 or higher
+  Hostname: cas.lu.se
+  Port: 443
+  URI: /cas
+. Login form
+  Make CAS login default on login forms
+. User accounts
+  Deselect Automatically create Drupal accounts
+
+- Enable modules Nodeaccess and CAS
+ (enable only CAS, NOT CAS Server)
+
+- Menus
+. Create menu Action menu
+
+- Enable Clean URLs
+
+- Blocks
+. Move User login to Header
+. Disable Navigation and Management
+. Move Action menu to Sidebar first
+. Configure Action Menu block and remove header
+
+- Content types
+. Create content type Database
+. Published, Not promoted to front page
+. Don't display author and date information
+. Enable Action menu and set it as Default parent item
+
+- Configure Nodeaccess for Database
+. Enable Show grant tab for this node type
+. Enable all for developer and View for authenticated user
+
+- Configure Available updates/Settings
+. E-mail: <mail address>
+
+- Create soft link for easy access to CAnMove settings file
+. ln -s /var/.../lib/settings.php /usr/share/drupal7/canmove.php
+
+- Setup theme
+. Copy /usr/share/drupal7/themes/bartik to /etc/drupal7/all/themes/lubartik
+. Go to /etc/drupal7/all/themes/lubartik/templates and edit node.tpl.php
+  Right after "print render($content);" insert the following line:
+    require "/var/www/html/db/lib/drupal.php"; (adjust web root if necessary)
+
