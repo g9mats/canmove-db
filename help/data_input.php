@@ -10,22 +10,22 @@ As a general rule the columns can appear in any order but there are some excepti
 The data loading is conducted in 4-5 stages.
 <ul>
 <li>
-Upload files<br/>
+Upload Files<br/>
 Files are first uploaded to the file archive on the server.
 When uploading the file can be tagged.
 Text files ready for loading should be tagged "final", but you can also upload other files like e.g. spreadsheets as "raw", not ready files as "interim" and documentation as "document".
 </li><li>
-Register files<br/>
+Register Files<br/>
 Some tracking files contain tracking data but no information on which device that collected the data or which animal that wore the device.
 Registration tags the file with these keys and maybe other keys as well.
 </li><li>
-Import files<br/>
+Import Files<br/>
 The data is loaded from file into a temporary storage area in the database.
 </li><li>
-Validate data<br/>
+Validate Data<br/>
 Data in the temporary storage area is validated.
 </li><li>
-Load data<br/>
+Load Data<br/>
 Data is transformed from the temporary storage into the appropriate set of tables in the CAnMove database.
 </li>
 </ul>
