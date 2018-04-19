@@ -34,7 +34,7 @@ select
 	cast (null as varchar),
 	d.device,
 	d.device,
-	cast (p.log_time as timestamp),
+	cast (p.log_time at time zone 'UTC' as timestamp with time zone),
 	cast (p.latitude as float8),
 	cast (p.longitude as float8),
 	cast (p.altitude as float8),

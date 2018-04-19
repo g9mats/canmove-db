@@ -7,7 +7,7 @@ create table d_ori_count
 	count_id			serial primary key,
 	phase_id			integer not null references d_ori_phase (phase_id),
 	version				integer not null default 1,
-	funnel_line			varchar(1) not null,
+	funnel_line			varchar(1),
 	operator_id			integer not null references r_person (person_id),
 	northern_sector		float not null default 1,
 	s1_direction		float not null default 0,

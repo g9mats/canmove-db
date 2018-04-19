@@ -7,7 +7,7 @@ create table d_orn_track
 	track_id			serial primary key,
 	session_id			integer not null references d_orn_session (session_id),
 	track_no			integer not null,
-	start_time			timestamp not null,
+	start_time			timestamp with time zone not null,
 	itis_tsn			integer not null,
 	taxon				varchar(60) not null,
 	species_no			integer not null,

@@ -19,7 +19,7 @@ create table d_ori_experiment
 	longitude			float not null,
 	location			varchar(50),
 	operator_id			integer not null references r_person (person_id),
-	measurement_time	timestamp,
+	measurement_time	timestamp with time zone,
 	remark				varchar(500),
 unique (animal_id,capture_id,experiment_no)
 );

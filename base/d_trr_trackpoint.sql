@@ -11,7 +11,7 @@ create table d_trr_trackpoint
 	distance			float not null,
 	dist_locked			boolean not null,
 	azi_ele_locked		boolean not null,
-	tick_time			timestamp not null
+	tick_time			timestamp with time zone not null
 );
 insert into x_table (name) select distinct 'd_trr_trackpoint' from x_table
 where not exists (select 1 from x_table where name='d_trr_trackpoint');

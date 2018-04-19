@@ -11,8 +11,8 @@ create table d_gen_device
 	device_model_id		integer references r_device_model (device_model_id),
 	device_attachment	varchar(50),
 	order_no			integer not null,
-	start_time			timestamp,
-	end_time			timestamp,
+	start_time			timestamp with time zone,
+	end_time			timestamp with time zone,
 	remark				varchar(500)
 );
 insert into x_table (name) select distinct 'd_gen_device' from x_table

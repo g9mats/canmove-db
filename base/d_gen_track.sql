@@ -8,8 +8,8 @@ create table d_gen_track
 	animal_id			integer not null references d_gen_animal (animal_id),
 	start_capture_id	integer not null references d_gen_capture (capture_id),
 	end_capture_id		integer references d_gen_capture (capture_id),
-	start_time			timestamp,
-	end_time			timestamp,
+	start_time			timestamp with time zone,
+	end_time			timestamp with time zone,
 	remark				varchar(500)
 );
 insert into x_table (name) select distinct 'd_gen_track' from x_table

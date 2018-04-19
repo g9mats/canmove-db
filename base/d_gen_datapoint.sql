@@ -10,7 +10,7 @@ create table d_gen_datapoint
 	version				integer not null default 1,
 	varset				varchar not null default '-',
 	order_no			integer not null,
-	log_time			timestamp not null,
+	log_time			timestamp with time zone not null,
 	data_id				integer not null references r_data (data_id),
 	data_value			varchar(100)
 );

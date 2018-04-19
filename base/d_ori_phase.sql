@@ -7,9 +7,9 @@ create table d_ori_phase
 	phase_id			serial primary key,
 	experiment_id		integer not null references d_ori_experiment (experiment_id),
 	phase_no			integer not null,
-	start_time			timestamp,
-	end_time			timestamp,
-	middle_time			timestamp,
+	start_time			timestamp with time zone,
+	end_time			timestamp with time zone,
+	middle_time			timestamp with time zone,
 	remark				varchar(500)
 );
 insert into x_table (name) select distinct 'd_ori_phase' from x_table

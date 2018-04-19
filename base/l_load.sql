@@ -9,7 +9,7 @@ create table l_load
 	database_name		varchar(50),
 	dataset_id			integer,
 	loaded				boolean not null default false,
-	create_time			timestamp not null,
+	create_time			timestamp with time zone not null,
 	remark				text,
 unique (data_type,database_name,dataset_id)
 );

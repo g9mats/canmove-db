@@ -8,7 +8,7 @@ create table d_ori_assessment
 	animal_id			integer not null references d_ori_animal (animal_id),
 	capture_id			integer not null references d_ori_capture (capture_id),
 	assessment_no		integer not null,
-	assessment_time		timestamp,
+	assessment_time		timestamp with time zone,
 	operator_id			integer not null references r_person (person_id),
 	remark				varchar(500),
 unique (animal_id,capture_id,assessment_no)

@@ -7,8 +7,8 @@ create table d_gen_migration_phase
 	phase_id			serial primary key,
 	device_id			integer not null references d_gen_device (device_id),
 	version				integer not null default 1,
-	start_log_time		timestamp not null,
-	end_log_time		timestamp not null,
+	start_log_time		timestamp with time zone not null,
+	end_log_time		timestamp with time zone not null,
 	phase_type			varchar(2) not null,
 	phase_index			integer not null
 );

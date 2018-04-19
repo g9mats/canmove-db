@@ -9,7 +9,7 @@ create table d_trr_wind
 	time_to_lock		integer not null,
 	ground_wind_dir		float not null,
 	ground_wind_speed	float not null,
-	create_time			timestamp not null
+	create_time			timestamp with time zone not null
 );
 insert into x_table (name) select distinct 'd_trr_wind' from x_table
 where not exists (select 1 from x_table where name='d_trr_wind');

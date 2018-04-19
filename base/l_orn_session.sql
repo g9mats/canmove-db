@@ -6,7 +6,7 @@ create table l_orn_session
 (
 	file_id				integer not null unique,
 	dataset_id			integer not null,
-	session_time		timestamp not null,
+	session_time		timestamp with time zone not null,
 	height_datum		varchar,
 	height_source		varchar,
 	wind_source			varchar,

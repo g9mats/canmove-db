@@ -8,7 +8,7 @@ create table d_gen_trackpoint
 	device_id			integer not null references d_gen_device (device_id),
 	period				varchar not null default '-',
 	version				integer not null default 1,
-	log_time			timestamp not null,
+	log_time			timestamp with time zone not null,
 	quality				varchar(3),
 	latitude			float,
 	longitude			float,

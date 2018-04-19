@@ -7,7 +7,7 @@ create table l_file_log
 	file_log_id			serial primary key,
 	file_id				integer not null references l_file (file_id),
 	log_action			varchar(10) not null,
-	log_time			timestamp not null
+	log_time			timestamp with time zone not null
 );
 insert into x_table (name) select distinct 'l_file_log' from x_table
 where not exists (select 1 from x_table where name='l_file_log');

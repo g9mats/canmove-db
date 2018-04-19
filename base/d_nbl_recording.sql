@@ -9,7 +9,7 @@ create table d_nbl_recording
 	recording			integer not null,
 	setup_id			integer not null references p_nbl_setup (setup_id),
 	replicate			integer not null,
-	recording_time		timestamp not null,
+	recording_time		timestamp with time zone not null,
 	remark				varchar(500)
 );
 insert into x_table (name) select distinct 'd_nbl_recording' from x_table

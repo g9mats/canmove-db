@@ -8,6 +8,7 @@ create table r_person
 	first_name			varchar(50) not null,
 	last_name			varchar(50) not null,
 	drupal_id			integer unique,
+	time_zone			varchar,
 	remark				text,
 	start_date			date,
 	end_date			date

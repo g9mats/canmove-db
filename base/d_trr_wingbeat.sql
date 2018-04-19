@@ -5,7 +5,7 @@
 create table d_trr_wingbeat (
 	wingbeat_id			serial primary key,
 	track_id			integer not null references d_trr_track (track_id),
-	start_time			date not null,
+	start_time			timestamp with time zone not null,
 	duration			integer not null,
 	sense				char(1) not null,
 	file_name			varchar(200) not null,

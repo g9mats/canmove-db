@@ -6,7 +6,7 @@ create table d_ori_capture
 (
 	capture_id			serial primary key,
 	animal_id			integer not null references d_ori_animal (animal_id),
-	capture_time		timestamp not null,
+	capture_time		timestamp with time zone not null,
 	latitude			float not null,
 	longitude			float not null,
 	location			varchar(50),

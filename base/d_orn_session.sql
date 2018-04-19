@@ -7,7 +7,7 @@ create table d_orn_session
 	session_id			serial primary key,
 	dataset_id			integer not null references p_dataset (dataset_id),
 	location			varchar(50) not null,
-	session_time		timestamp not null,
+	session_time		timestamp with time zone not null,
 	file_id				integer not null unique,
 	latitude			float not null,
 	longitude			float not null,

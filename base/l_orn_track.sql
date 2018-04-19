@@ -7,7 +7,7 @@ create table l_orn_track
 	file_id				integer not null,
 	track_no			integer not null,
 	dataset_id			integer not null,
-	start_time			timestamp not null,
+	start_time			timestamp with time zone not null,
 	itis_tsn			integer,
 	taxon				varchar not null,
 	species_no			integer not null,

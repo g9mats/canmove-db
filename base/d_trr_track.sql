@@ -6,7 +6,7 @@ create table d_trr_track
 (
 	track_id			serial primary key,
 	dataset_id			integer not null references p_dataset (dataset_id),
-	start_time			timestamp not null,
+	start_time			timestamp with time zone not null,
 	site_id				integer not null references r_trr_site (site_id),
 	radar_id			integer not null references r_trr_radar (radar_id),
 	track_type			char(1) not null references r_trr_track_type (track_type),
