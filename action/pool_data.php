@@ -33,7 +33,7 @@ order by s.storage_name
 Export of data from several datasets into an XML file (can be read by e.g. Excel).
 </p>
 <p>
-You must select storage type before you can select data subset. You will only find those storage types for which there are datasets that you have access to and that are supported by this pooled data export utility.
+You must select storage type before you can select data subset. You will only find those storage types for which there are datasets that you have access to and that are supported by this pool data export utility.
 </p>
 
 <!-- Form for selection of dataset -->

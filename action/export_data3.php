@@ -13,6 +13,7 @@ if ($data_subset=="") {
 	return;
 }
 $version=$_POST['version'];
+$tz=$_POST['tz'];
 $column_arr=$_POST['column_arr'];
 if ($data_subset=="datapoint" && $column_arr[0]=="") {
 	echo "<p>You must specify at least one column.</p>";

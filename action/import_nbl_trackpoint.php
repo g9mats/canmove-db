@@ -38,7 +38,8 @@ $db->connect();
 // SQL statement that gets key values from file info
 $sql_file="
 select
-	dataset_id
+	dataset_id,
+	time_zone
 from l_file
 where file_id = $1
 ";
@@ -157,6 +158,9 @@ order by header
 // Get key values for file
 $res = $db->query($sql_file, array($file_id));
 $dataset_id = $res[0]['dataset_id'];
+$tz = $res[0]['time_zone'];
+$sql_tz = "set time zone '".$tz."'";
+$res = $db->execute($sql_tz);
 
 // Start build of SQL statment for insert of data row
 $sql_insdata=

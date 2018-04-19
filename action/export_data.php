@@ -32,6 +32,16 @@ where d.dataset_id = a.dataset_id
   and p.drupal_id = $1
 order by d.title
 ";
+
+$sql_tz="
+select replace(name,'Etc/','') as name,utc_offset
+from pg_timezone_names
+where name not like 'GMT%'
+  and name not like 'posix%'
+  and name not like 'UTC%'
+  and name not like '%UCT%'
+order by name
+";
 ?>
 
 <p>
@@ -70,6 +80,21 @@ You must select dataset before you can select data subset. You will only find th
 	<td id="vslabel">Variable Set:</td>
 	<td><select id="varset" name="varset" required="required">
 		<option value="-">-</option>
+	</select></td>
+	</tr><tr>
+	<td id="tzlabel">Time Zone:</td>
+	<td><select id="tz" name="tz" required="required">
+		<option value="" selected>Select time zone</option>
+		<option value="Europe/Stockholm">Europe/Stockholm</option>
+		<option value="Etc/UTC">UTC: 00:00:00</option>
+<?php
+	if ($res = $db->query($sql_tz)) {
+		foreach ($res as $row) {
+			echo "<option value='".$row['name']."'>".
+				$row['name'].": ".$row['utc_offset']."</option>";
+		}
+	}
+?>
 	</select></td>
 	</tr><tr>
 	<td></td>

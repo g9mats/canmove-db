@@ -20,7 +20,8 @@ require $DBRoot."/lib/DB.php";
 // SQL statement that gets key values from file info
 $sql_file="
 select
-	dataset_id
+	dataset_id,
+	time_zone
 from l_file
 where file_id = $1
 ";
@@ -65,6 +66,10 @@ $err_arr = array();
 // Get key values for file
 $res = $db->query($sql_file, array($file_id));
 $dataset_id = $res[0]['dataset_id'];
+$tz = $res[0]['time_zone'];
+$sql_tz = "set time zone '".$tz."'";
+$res = $db->execute($sql_tz);
+$res = pg_query($DB,$sql_tz);
 
 // Get all column information
 $colinfo = $db->query($sql_selvar, array($dataset_id));

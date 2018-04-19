@@ -10,7 +10,8 @@ select
 	first_name,
 	last_name,
 	person_id,
-	drupal_id
+	drupal_id,
+	time_zone
 from r_person
 where person_id > 0
   and drupal_id is not null
@@ -30,6 +31,7 @@ $db->connect();
 <th>Last Name</th>
 <th>Person Id</th>
 <th>Drupal Id</th>
+<th>Time Zone</th>
 </tr>
 
 <?php // For every person
@@ -41,6 +43,7 @@ if ($res = $db->query($sql))
 <td><?php echo $row['last_name']; ?></td>
 <td><?php echo $row['person_id']; ?></td>
 <td><?php echo $row['drupal_id']; ?></td>
+<td><?php echo $row['time_zone']; ?></td>
 </tr>
 <?php
 	}

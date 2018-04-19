@@ -41,7 +41,8 @@ select
 	device_id,
 	period,
 	version,
-	varset
+	varset,
+	time_zone
 from l_file
 where file_id = $1
 ";
@@ -193,6 +194,9 @@ $device_id = $res[0]['device_id'];
 $period = $res[0]['period'];
 $version = $res[0]['version'];
 $varset = $res[0]['varset'];
+$tz = $res[0]['time_zone'];
+$sql_tz = "set time zone '".$tz."'";
+$res = $db->execute($sql_tz);
 
 // Delete any old column definitions
 $res=$db->execute($sql_delvar,array($dataset_id,$varset));
@@ -226,9 +230,9 @@ foreach ($headers as $htext) {
 	}
 	$row=$res[0];
 	// Save column information for later use
-	$colinfo['data_id'][$colnum]=$row['data_id'];
-	$colinfo['data_type'][$colnum]=$row['data_type'];
-	$colinfo['case_type'][$colnum]=$row['case_type'];
+	$colinfo['data_id'][$loadcolnum]=$row['data_id'];
+	$colinfo['data_type'][$loadcolnum]=$row['data_type'];
+	$colinfo['case_type'][$loadcolnum]=$row['case_type'];
 	$loadindex[$loadcolnum++]=$colnum++;
 	// Insert one column definition in table l_column
 	$res=$db->execute($sql_insvar,
@@ -278,30 +282,32 @@ while (($buffer = fgets ($lfile)) !== FALSE) { // Read rest of file
 		else {
 			$notnull++;
 			// Switch "," to "." for float
-			if ($colinfo['data_type'][$li]=="float")
+			if ($colinfo['data_type'][$i]=="float")
 				$data[$li]=str_replace(",", ".", $data[$li]);
 			// Execute case restriction
-			if ($colinfo['case_type'][$li]=="upper")
+			if ($colinfo['case_type'][$i]=="upper")
 				$data[$li]=strtoupper($data[$li]);
-			if ($colinfo['case_type'][$li]=="lower")
+			if ($colinfo['case_type'][$i]=="lower")
 				$data[$li]=strtolower($data[$li]);
 		}
 	}
 	if ($notnull > 0) {
-		// Insert one data row into table l_gen_datapoint
-		$res=$db->execute($sql_insdata,
-			array(
-				$dataset_id,
-				$device_id,
-				$period,
-				$version,
-				$varset,
-				$i,
-				$colinfo['data_id'][$li],
-				$data[$log_time_idx],
-				$data[$loadindex[$i]]
-			)
-		);
+		// Insert one data row into table l_gen_datapoint for every variable
+		for ($i = 0; $i < $loadcolnum; $i++) {
+			$res=$db->execute($sql_insdata,
+				array(
+					$dataset_id,
+					$device_id,
+					$period,
+					$version,
+					$varset,
+					$i+1,
+					$colinfo['data_id'][$i],
+					$data[$log_time_idx],
+					$data[$loadindex[$i]]
+				)
+			);
+		}
 		$datanum++;
 	}
 }

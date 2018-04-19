@@ -24,7 +24,8 @@ select
 	device_id,
 	period,
 	version,
-	varset
+	varset,
+	time_zone
 from l_file
 where file_id = $1
 ";
@@ -76,6 +77,10 @@ $device_id = $res[0]['device_id'];
 $period = $res[0]['period'];
 $version = $res[0]['version'];
 $varset = $res[0]['varset'];
+$tz = $res[0]['time_zone'];
+$sql_tz = "set time zone '".$tz."'";
+$res = $db->execute($sql_tz);
+$res = pg_query($DB,$sql_tz);
 
 // Get all column information
 $colinfo = $db->query($sql_selvar, array($dataset_id));

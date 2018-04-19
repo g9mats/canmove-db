@@ -18,7 +18,8 @@ $db->connect();
 $sql_file="
 select
 	dataset_id,
-	original_name
+	original_name,
+	time_zone
 from l_file
 where file_id = $1
 ";
@@ -106,6 +107,9 @@ $err_arr = array();
 $res = $db->query($sql_file, array($file_id));
 $dataset_id = $res[0]['dataset_id'];
 $file_name = $res[0]['original_name'];
+$tz = $res[0]['time_zone'];
+$sql_tz = "set time zone '".$tz."'";
+$res = $db->execute($sql_tz);
 echo "File: ".$file_name."</br>";
 
 // Check for previous use of this location

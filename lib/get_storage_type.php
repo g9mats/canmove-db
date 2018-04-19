@@ -1,7 +1,7 @@
 <?php
 // Creator: Mats J Svensson, CAnMove
 
-require_once $DBRoot."/lib/db.php";
+require_once $DBRoot."/lib/DB.php";
 
 $sql="
 select

@@ -5,6 +5,7 @@ error_reporting (E_ALL);
 $dataset_id=$_POST['dataset_id'];
 $data_subset=$_POST['data_subset'];
 $data_status=$_POST['data_status'];
+$tz=$_POST['tz'];
 if ($dataset_id=="") {
 	echo "<p>You must specify a dataset.</p>";
 	return;
@@ -16,6 +17,14 @@ if ($data_subset=="") {
 if ($data_status=="") {
 	echo "<p>You must specify data status.</p>";
 	return;
+}
+if ($data_status=="final") {
+	if ($tz=="") {
+		echo "<p>You must specify a time zone.</p>";
+		return;
+	}
+} else {
+	$tz="-";
 }
 require_once $DBRoot."/lib/DBLink.php";
 
@@ -34,9 +43,9 @@ select nextval('l_file_file_id_seq') file_id
 
 $sql_ins="
 insert into l_file (
-	file_id,dataset_id,data_status,data_subset,
+	file_id,dataset_id,data_status,data_subset,time_zone,
 	original_name,archive_name,upload_time
-) values ($1, $2, $3, $4, $5, $6, date_trunc('second',localtimestamp))
+) values ($1, $2, $3, $4, $5, $6, $7, date_trunc('second',localtimestamp))
 ";
 
 $sql_upd="
@@ -51,7 +60,8 @@ update l_file set
 	loaded = false,
 	load_time = null,
 	deleted = false,
-	del_time = null
+	del_time = null,
+	time_zone = $2
 where file_id = $1
 ";
 
@@ -102,10 +112,10 @@ foreach ($_FILES["file"]["name"] as $i => $oname) {
 			if ($op=="insert") {
 				$res=$db->execute($sql_ins,
 					array($file_id,$dataset_id,$data_status,$data_subset,
-						$oname,$aname));
+						$tz,$oname,$aname));
 				echo "Uploaded new file: ".$oname."<br/>";
 			} else {
-				$res=$db->execute($sql_upd, array($file_id));
+				$res=$db->execute($sql_upd, array($file_id,$tz));
 				echo "Uploaded updated file: ".$oname."<br/>";
 			}
 			$res=$db->execute($sql_log, array($file_id));

@@ -22,7 +22,8 @@ select
 	device_id,
 	period,
 	version,
-	varset
+	varset,
+	time_zone
 from l_file
 where file_id = $1
 ";
@@ -111,6 +112,9 @@ $device_id = $res[0]['device_id'];
 $period = $res[0]['period'];
 $version = $res[0]['version'];
 $varset = $res[0]['varset'];
+$tz = $res[0]['time_zone'];
+$sql_tz = "set time zone '".$tz."'";
+$res = $db->execute($sql_tz);
 
 // Synchronize a key combination
 $res=$db->execute($sql_del,

@@ -58,6 +58,16 @@ where c.dataset_id in (".implode(',',$dataset_arr).")
 group by d.order_no, d.header
 order by d.order_no, d.header, vnum desc
 ";
+
+$sql_tz="
+select replace(name,'Etc/','') as name,utc_offset
+from pg_timezone_names
+where name not like 'GMT%'
+  and name not like 'posix%'
+  and name not like 'UTC%'
+  and name not like '%UCT%'
+order by name
+";
 ?>
 
 <p>
@@ -94,6 +104,21 @@ Select one or more variables. Variables marked with * are present in all dataset
 			echo "</option>";
 			if ($vnum == $dnum)
 				echo "</bold>";
+		}
+	}
+?>
+	</select></td>
+	</tr><tr>
+	<td id="tzlabel">Time Zone:</td>
+	<td><select id="tz" name="tz" required="required">
+		<option value="" selected>Select time zone</option>
+		<option value="Europe/Stockholm">Europe/Stockholm</option>
+		<option value="Etc/UTC">UTC: 00:00:00</option>
+<?php
+	if ($res = $db->query($sql_tz)) {
+		foreach ($res as $row) {
+			echo "<option value='".$row['name']."'>".
+				$row['name'].": ".$row['utc_offset']."</option>";
 		}
 	}
 ?>

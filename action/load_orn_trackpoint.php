@@ -32,7 +32,8 @@ $winddata = new ornWindData();
 // SQL statement that gets key values from file info
 $sql_file="
 select
-	original_name
+	original_name,
+	time_zone
 from l_file
 where file_id = $1
 ";
@@ -117,6 +118,9 @@ where session_id = $1
 // Get key values for file
 $res = $db->query($sql_file, array($file_id));
 $file_name = $res[0]['original_name'];
+$tz = $res[0]['time_zone'];
+$sql_tz = "set time zone '".$tz."'";
+$res = $db->execute($sql_tz);
 echo "File: ".$file_name."</br>\n";
 
 // Check for previous use of current location and insert if not

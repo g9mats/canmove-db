@@ -32,9 +32,10 @@ $sector = new oriSector();
 //require_once $DBRoot."/action/delete_import_ori_count.php";
 
 // SQL statement that gets key values from file info
-$sel_file="
+$sql_file="
 select
-	version
+	version,
+	time_zone
 from l_file
 where file_id = $1
 ";
@@ -59,8 +60,11 @@ order by p.order_no
 ";
 
 // Get key values for file
-$res = $db->query($sel_file, array($file_id));
+$res = $db->query($sql_file, array($file_id));
 $version = $res[0]['version'];
+$tz = $res[0]['time_zone'];
+$sql_tz = "set time zone '".$tz."'";
+$res = $db->execute($sql_tz);
 
 // Get column names for sector values
 $sector_arr = $db->query($sel_var, array($dataset_id,"d_ori_sector"));

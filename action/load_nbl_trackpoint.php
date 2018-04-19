@@ -19,6 +19,14 @@ $db->connect();
 require_once $DBRoot."/action/delete_data_nbl_trackpoint.php";
 require_once $DBRoot."/action/delete_import_nbl_trackpoint.php";
 
+// SQL statement that gets key values from file info
+$sql_file="
+select
+	time_zone
+from l_file
+where file_id = $1
+";
+
 // SQL statement that gets information on all condition columns
 $sql_cond="
 select p.header, p.load_name
@@ -38,14 +46,14 @@ order by COND_LIST
 ";
 
 // SQL statement that inserts a context record
-$sql_cont_ins="
+$sql_inscont="
 insert into p_nbl_context (
 	dataset_id, context
 ) values ($1, $2)
 ";
 
 // SQL statement that inserts a condition record
-$sql_cond_ins="
+$sql_inscond="
 insert into p_nbl_condition (
 	context_id, condition_type, condition_value
 ) select distinct context_id, $3, $4
@@ -55,7 +63,7 @@ where dataset_id = $1
 ";
 
 // SQL statement that inserts setups
-$sql_setup_ins="
+$sql_inssetup="
 insert into p_nbl_setup (
 	dataset_id, setup
 )
@@ -65,7 +73,7 @@ where dataset_id = $1
 ";
 
 // SQL statement that inserts setup phases
-$sql_phase_ins="
+$sql_insphase="
 insert into p_nbl_setup_phase (
 	setup_id, start_time, end_time, context_id
 )
@@ -85,7 +93,7 @@ order by s.setup_id,c.context_id COND_LIST
 ";
 
 // SQL statement that inserts recordings
-$sql_rec="
+$sql_insrec="
 insert into d_nbl_recording (
 	dataset_id, recording, setup_id, replicate, recording_time
 )
@@ -103,7 +111,7 @@ order by recording
 ";
 
 // SQL statement that inserts tracks
-$sql_track="
+$sql_instrack="
 insert into d_nbl_track (
 	recording_id, track, itis_tsn, taxon, animal_label
 )
@@ -133,7 +141,7 @@ order by p.order_no
 ";
 
 // SQL statement that inserts track data
-$sql_track_data_ins="
+$sql_instrack_data="
 insert into d_nbl_track_data (
 	track_id, order_no, data_id, data_value
 )
@@ -152,7 +160,7 @@ order by t.track_id
 ";
 
 // SQL statement that inserts files
-$sql_file="
+$sql_insfile="
 insert into d_nbl_file (
 	recording_id, file, file_name
 )
@@ -168,7 +176,7 @@ order by file
 ";
 
 // SQL statement that inserts trackpoints
-$sql_trackpoint="
+$sql_instrackpoint="
 insert into d_nbl_trackpoint (
 	track_id, file_id, frame, time, x, y, z
 )
@@ -190,6 +198,12 @@ where r.recording_id = t.recording_id
 order by t.track_id
 ";
 
+// Get key values for file
+$res = $db->query($sql_file, array($file_id));
+$tz = $res[0]['time_zone'];
+$sql_tz = "set time zone '".$tz."'";
+$res = $db->execute($sql_tz);
+
 // Delete previously loaded data from database
 delete_data_nbl_trackpoint($dataset_id);
 
@@ -206,9 +220,9 @@ $cont_arr=$db->query($sql_cont,array($dataset_id));
 
 // Insert contexts and conditions
 for ($i=0;$i<count($cont_arr);$i++) {
-	$res=$db->execute($sql_cont_ins, array($dataset_id,$i+1));
+	$res=$db->execute($sql_inscont, array($dataset_id,$i+1));
 	for ($j=0;$j<count($cond_arr);$j++) {
-		$res=$db->execute($sql_cond_ins,
+		$res=$db->execute($sql_inscond,
 			array(
 				$dataset_id,
 				$i+1,
@@ -219,7 +233,7 @@ for ($i=0;$i<count($cont_arr);$i++) {
 }
 
 // Insert setups
-$res=$db->execute($sql_setup_ins, array($dataset_id));
+$res=$db->execute($sql_inssetup, array($dataset_id));
 
 // Insert setup phases
 $cond_from=""; $cond_where="";
@@ -229,21 +243,21 @@ for ($i=0;$i<count($cond_arr);$i++) {
 	$cond_where .= " and p.".$cond_arr[$i]['load_name']."=d".$i.".condition_value";
 	$cond_where .= " and d".$i.".condition_type='".$cond_arr[$i]['header']."'";
 }
-$sql_phase_ins = str_replace ("COND_LIST", $cond_list, $sql_phase_ins);
-$sql_phase_ins = str_replace ("COND_FROM", $cond_from, $sql_phase_ins);
-$sql_phase_ins = str_replace ("COND_WHERE", $cond_where, $sql_phase_ins);
-$res=$db->execute($sql_phase_ins, array($dataset_id));
+$sql_insphase = str_replace ("COND_LIST", $cond_list, $sql_insphase);
+$sql_insphase = str_replace ("COND_FROM", $cond_from, $sql_insphase);
+$sql_insphase = str_replace ("COND_WHERE", $cond_where, $sql_insphase);
+$res=$db->execute($sql_insphase, array($dataset_id));
 
 // Insert recordings
-$res=$db->execute($sql_rec, array($dataset_id));
+$res=$db->execute($sql_insrec, array($dataset_id));
 
 // Insert tracks
-$res=$db->execute($sql_track, array($dataset_id));
+$res=$db->execute($sql_instrack, array($dataset_id));
 
 // Insert track data
-$track_data=$db->query($sql_track_data, array($dataset_id));
+$track_data=$db->query($sql_instrack_data, array($dataset_id));
 for ($i=0;$i<count($track_data);$i++) {
-	$sql_temp = str_replace ("LOAD_NAME", $track_data[$i]['load_name'], $sql_track_data_ins);
+	$sql_temp = str_replace ("LOAD_NAME", $track_data[$i]['load_name'], $sql_instrack_data);
 	$res=$db->execute($sql_temp,
 			array(
 				$dataset_id,
@@ -253,10 +267,10 @@ for ($i=0;$i<count($track_data);$i++) {
 }
 
 // Insert files
-$res=$db->execute($sql_file, array($dataset_id));
+$res=$db->execute($sql_insfile, array($dataset_id));
 
 // Insert trackpoints
-$res=$db->execute($sql_trackpoint, array($dataset_id));
+$res=$db->execute($sql_instrackpoint, array($dataset_id));
 
 // Delete a key combination from staging area
 delete_import_nbl_trackpoint($dataset_id);

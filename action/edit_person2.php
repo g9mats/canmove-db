@@ -15,6 +15,7 @@ select
 	p.first_name,
 	p.last_name,
 	p.drupal_id,
+	p.time_zone,
 	d.name,
 	d.mail
 from r_person p left outer join drupal_users d
@@ -40,12 +41,24 @@ where d.uid = p.drupal_id
 order by name
 ";
 
+$sql_tz="
+select name,utc_offset
+from pg_timezone_names
+where name like '%/%'
+  and name not like 'Etc%'
+  and name not like 'posix%'
+  and name not like '%UTC%'
+  and name not like '%UCT%'
+order by name
+";
+
 $db = new DBLink("localhost", $CMDatabase, $Username);
 $db->connect();
 
 $resP = $db->query($sql_person, array($person_id));
 $rowP = $resP[0];
 $drupal_id = $rowP['drupal_id'];
+$time_zone = $rowP['time_zone'];
 ?>
 
 <p>
@@ -80,6 +93,27 @@ $drupal_id = $rowP['drupal_id'];
 			if ($rowD['uid'] == $drupal_id)
 				echo " selected";
 			echo ">".$rowD['name']." - ".$rowD['mail']."</option>";
+		}
+	}
+?>
+	</select></td>
+	</tr><tr>
+	<td>Time Zone:</td>
+	<td><select name="time_zone">
+<?php
+	if ($time_zone == "") {
+		echo "<option value='' selected>Select time zone</option>";
+		echo "<option value='Europe/Stockholm'>Europe/Stockholm</option>";
+	} else {
+		echo "<option value='".$time_zone."'>".$time_zone."</option>";
+		echo "<option value=''>Erase time zone</option>";
+	}
+	if ($resTZ = $db->query($sql_tz)) {
+		foreach ($resTZ as $rowTZ) {
+			echo "<option value='".$rowTZ['name']."'";
+			if ($rowTZ['name'] == $time_zone)
+				echo " selected";
+			echo ">".$rowTZ['name'].": ".$rowTZ['utc_offset']."</option>";
 		}
 	}
 ?>

@@ -94,9 +94,9 @@ foreach ($file_arr as $file_id) {
 		else
 			eval ("\$".$template[$i]."='".$key[$i]."';");
 	}
-	if ($period=="") $period="-";
-	if ($version=="") $version=1;
-	if ($varset=="") $varset="-";
+	if (!isset($period)) $period="-";
+	if (!isset($version)) $version=1;
+	if (!isset($varset)) $varset="-";
 	if ($res = $db->query($sql_device,array($dataset_id,$animal,$device))) {
 		$device_id = $res[0]['device_id'];
 	} else {

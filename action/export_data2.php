@@ -14,6 +14,11 @@ if ($data_subset=="") {
 }
 $version=$_POST['version'];
 $varset=$_POST['varset'];
+$tz=$_POST['tz'];
+if ($tz=="") {
+	echo "<p>You must specify a time zone.</p>";
+	return;
+}
 require_once $DBRoot."/lib/DBLink.php";
 
 // SQL: select column records
@@ -42,6 +47,7 @@ Select at least one column in the listbox.
 	<input name="data_subset" value="<?php echo $data_subset; ?>" type="hidden" />
 	<input name="version" value="<?php echo $version; ?>" type="hidden" />
 	<input name="varset" value="<?php echo $varset; ?>" type="hidden" />
+	<input name="tz" value="<?php echo $tz; ?>" type="hidden" />
 	<table><tr>
 	<td>Columns:</td>
 	<td><select id="column_arr[]" name="column_arr[]" required="required" multiple="multiple" size="10">

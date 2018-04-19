@@ -25,6 +25,14 @@ $capture = new oriCapture();
 $assessment = new oriAssessment();
 $assessmentData = new oriAssessmentData();
 
+// SQL statement that gets key values from file info
+$sql_file="
+select
+	time_zone
+from l_file
+where file_id = $1
+";
+
 // SQL statement that selects all rows from staging area
 $sel_stage="
 select * from l_ori_assessment
@@ -42,6 +50,12 @@ where p.data_id = r.data_id
   and r.table_name = $2
 order by p.order_no
 ";
+
+// Get key values for file
+$res = $db->query($sql_file, array($file_id));
+$tz = $res[0]['time_zone'];
+$sql_tz = "set time zone '".$tz."'";
+$res = $db->execute($sql_tz);
 
 // Get column names for assessment optional data values
 $assessment_arr = $db->query($sel_var, array($dataset_id,"d_ori_assessment_data"));

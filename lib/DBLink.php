@@ -19,6 +19,7 @@ class DBLink {
 	}
 
 	function connect() {
+		global $user;
 		$connect_str = 
 			"host=".$this->hostname.
 			" dbname=".$this->database.
@@ -27,6 +28,16 @@ class DBLink {
 			$connect_str .= " password=".$this->password;
 		$this->dblink = pg_connect($connect_str)
 			or die (pg_last_error()."\n");
+		if (isset ($user->uid)) {
+			$sql = "select time_zone from r_person where drupal_id = $1";
+			$result = pg_query_params($this->dblink, $sql, array($user->uid))
+				or die ($sql."\n".pg_last_error()."\n");
+			$row = pg_fetch_assoc($result);
+			$sql = "set time zone '".$row['time_zone']."'";
+			$result = pg_query($this->dblink, $sql)
+				or die ($sql."\n".pg_last_error()."\n");
+			pg_free_result($result);
+		}
 	}
 
 	function disconnect() {

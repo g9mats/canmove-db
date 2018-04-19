@@ -24,6 +24,11 @@ if (count($var_arr)==0) {
 }
 $var_pos=array_flip($var_arr);
 $version=1;
+$tz=$_POST['tz'];
+if ($tz=="") {
+	echo "<p>You must specify a time zone.</p>";
+	return;
+}
 
 require "./canmove.inc";
 require $DBRoot."/action/pool_".strtolower($storage_type)."_".$data_subset.".php";

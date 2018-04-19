@@ -9,6 +9,8 @@ $did=$dataset_id;
 require_once $DBRoot."/lib/DBLink.php";
 $db = new DBLink("localhost", $CMDatabase, $Username);
 $db->connect();
+$sql_tz = "set time zone '".$tz."'";
+$res = $db->execute($sql_tz);
 
 // SQL statement for selection of all column definitions
 $sql_column="

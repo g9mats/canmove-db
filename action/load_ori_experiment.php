@@ -29,6 +29,14 @@ $experimentData = new oriExperimentData();
 $phase = new oriPhase();
 $phaseData = new oriPhaseData();
 
+// SQL statement that gets key values from file info
+$sql_file="
+select
+	time_zone
+from l_file
+where file_id = $1
+";
+
 // SQL statement that selects all rows from staging area
 $sel_stage="
 select * from l_ori_experiment
@@ -165,6 +173,12 @@ where context_id in (
 	where dataset_id = $1
 	)
 ";
+
+// Get key values for file
+$res = $db->query($sql_file, array($file_id));
+$tz = $res[0]['time_zone'];
+$sql_tz = "set time zone '".$tz."'";
+$res = $db->execute($sql_tz);
 
 // Insert setups
 $res=$db->execute($ins_setup, array($dataset_id));
