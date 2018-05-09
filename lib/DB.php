@@ -3,7 +3,7 @@
 
 // Connect to database
 $DB=pg_connect("host=localhost user=".$Username." dbname=".$Database);
-if (isset ($user->uid)) {
+if (isset($user->uid) && ($user->uid != "")) {
 	$_DBsql = "select time_zone from r_person where drupal_id = $1";
 	$_DBres = pg_query_params($DB, $_DBsql, array($user->uid))
 		or die ($_DBsql."\n".pg_last_error()."\n");

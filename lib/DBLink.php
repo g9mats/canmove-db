@@ -28,7 +28,7 @@ class DBLink {
 			$connect_str .= " password=".$this->password;
 		$this->dblink = pg_connect($connect_str)
 			or die (pg_last_error()."\n");
-		if (isset ($user->uid)) {
+		if (isset($user->uid) && ($user->uid != "")) {
 			$sql = "select time_zone from r_person where drupal_id = $1";
 			$result = pg_query_params($this->dblink, $sql, array($user->uid))
 				or die ($sql."\n".pg_last_error()."\n");
