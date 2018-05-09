@@ -19,6 +19,7 @@ $db->connect();
 $sql_file="
 select
 	dataset_id,
+	original_name,
 	time_zone
 from l_file
 where file_id = $1
@@ -64,6 +65,7 @@ $err_arr = array();
 // Get key values for file
 $res = $db->query($sql_file, array($file_id));
 $dataset_id = $res[0]['dataset_id'];
+$file_name = $res[0]['original_name'];
 $tz = $res[0]['time_zone'];
 $sql_tz = "set time zone '".$tz."'";
 $res = $db->execute($sql_tz);
@@ -116,10 +118,13 @@ foreach ($stage as $row) {
 	}
 }
 
+echo "File: ".$file_name."<br/>";
 echo $row_count." rows read<br/>";
 echo $err_count." errors found<br/>";
 for ($i=0; $i<min(20,$err_count); $i++)
 	echo $err_arr[$i]."<br/>";
+if (count($err_arr)>20)
+	echo "...<br/>";
 
 return $err_count;
 

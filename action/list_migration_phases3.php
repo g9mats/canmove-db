@@ -17,9 +17,16 @@ if ($version=="") {
 	echo "<p>You must specify a version.</p>";
 	return;
 }
+$tz=$_POST['tz'];
+if ($tz=="") {
+	echo "<p>You must specify a time zone.</p>";
+	return;
+}
 require_once $DBRoot."/lib/DBLink.php";
 $db = new DBLink("localhost", $CMDatabase, $Username);
 $db->connect();
+$sql_tz = "set time zone '".$tz."'";
+$res = $db->execute($sql_tz);
 
 $sql_device="
 select a.animal, d.device
@@ -77,6 +84,7 @@ if ($res = $db->query($sql_phase, array($device_id,$version)))
 <form action="<?php echo $DrAction ?>" method="post">
 	<input name="next_step" value="2" type="hidden" />
 	<input name="dataset_id" value="<?php echo $dataset_id; ?>" type="hidden" />
+	<input name="tz" value="<?php echo $tz; ?>" type="hidden" />
 	<button type="submit">Select new device</button>
 </form>
 </p>

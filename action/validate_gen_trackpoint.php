@@ -135,7 +135,7 @@ echo " - ".$row_count." rows read<br/>";
 echo " - ".$err_count." errors found<br/>";
 for ($i=0; $i<min(20,$err_count); $i++)
 	echo $err_arr[$i]."<br/>";
-if (count($err_arr)>10)
+if (count($err_arr)>20)
 	echo "...<br/>";
 
 return $err_count;

@@ -115,7 +115,8 @@ You must select dataset before you can select data subset. You will only find th
 </script>
 <script>
 function choose() {
-	if (document.getElementById("data_subset").value == "datapoint") {
+	if ((document.getElementById("data_subset").value == "datapoint") ||
+		(document.getElementById("data_subset").value == "activity_log")) {
 		document.getElementById("dsform").action = "<?php echo $DrAction ?>";
 		document.getElementById("next_step").value = "2";
 		document.getElementById("please").style.visibility = "hidden";

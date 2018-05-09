@@ -24,14 +24,14 @@ on d_gen_datapoint (
 	period,
 	version,
 	varset,
-	order_no,
-	log_time
+	log_time,
+	order_no
 );
 
 create index d_gen_datapoint_version_key
 on d_gen_datapoint (
 	device_id,
 	version,
-	order_no,
-	log_time
+	log_time,
+	order_no
 );

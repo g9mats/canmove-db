@@ -7,6 +7,11 @@ if ($dataset_id=="") {
 	echo "<p>You must specify a dataset.</p>";
 	return;
 }
+$tz=$_POST['tz'];
+if ($tz=="") {
+	echo "<p>You must specify a time zone.</p>";
+	return;
+}
 require_once $DBRoot."/lib/DBLink.php";
 $db = new DBLink("localhost", $CMDatabase, $Username);
 $db->connect();
@@ -45,6 +50,7 @@ Select a device in the listbox.
 	<input name="dataset_id" value="<?php echo $dataset_id; ?>" type="hidden" />
 	<input id="device_id" name="device_id" value="" type="hidden" />
 	<input id="version" name="version" value="" type="hidden" />
+	<input name="tz" value="<?php echo $tz; ?>" type="hidden" />
 	<table><tr>
 	<td>Device:</td>
 	<td><select id="dev_ver" name="dev_ver" required="required" onchange="get_keys()">

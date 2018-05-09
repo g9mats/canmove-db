@@ -30,6 +30,11 @@ if ($start_log_time>$end_log_time) {
 	echo "<button onclick='history.go(-1)'>Try again</button>";
 	return;
 }
+$tz=$_POST['tz'];
+if ($tz=="") {
+	echo "<p>You must specify a time zone.</p>";
+	return;
+}
 require_once $DBRoot."/lib/DBLink.php";
 
 // SQL: update person record
@@ -46,6 +51,8 @@ insert into d_gen_migration_phase (
 
 $db = new DBLink("localhost", $CMDatabase, $Username);
 $db->connect();
+$sql_tz = "set time zone '".$tz."'";
+$res = $db->execute($sql_tz);
 
 // Update person
 if ($res = $db->execute($sql, array(
@@ -65,6 +72,7 @@ if ($res = $db->execute($sql, array(
 	<input name="dataset_id" value="<?php echo $dataset_id; ?>" type="hidden" />
 	<input name="device_id" value="<?php echo $device_id; ?>" type="hidden" />
 	<input name="version" value="<?php echo $version; ?>" type="hidden" />
+	<input name="tz" value="<?php echo $tz; ?>" type="hidden" />
 	<button type="submit">Define more phases</button>
 </form>
 </p>
@@ -73,6 +81,7 @@ if ($res = $db->execute($sql, array(
 <form action="<?php echo $DrAction ?>" method="post">
 	<input name="next_step" value="2" type="hidden" />
 	<input name="dataset_id" value="<?php echo $dataset_id; ?>" type="hidden" />
+	<input name="tz" value="<?php echo $tz; ?>" type="hidden" />
 	<button type="submit">Select new device</button>
 </form>
 </p>

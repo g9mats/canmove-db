@@ -41,6 +41,16 @@ where d.dataset_id = a.dataset_id
 	)
 order by d.title
 ";
+
+$sql_tz="
+select replace(name,'Etc/','') as name,utc_offset
+from pg_timezone_names
+where name not like 'GMT%'
+  and name not like 'posix%'
+  and name not like 'UTC%'
+  and name not like '%UCT%'
+order by name
+";
 ?>
 
 <p>
@@ -62,6 +72,20 @@ You will only find those datasets that you have write access to and with a data 
 		foreach ($res as $row)
 			echo "<option value='".$row['dataset_id']."'>".
 				$row['title']."</option>";
+	}
+?>
+	</select></td>
+	</tr><tr>
+	<td id="tzlabel">Time Zone:</td>
+	<td><select id="tz" name="tz" required="required">
+		<option value="Etc/UTC" selected>UTC: 00:00:00</option>
+		<option value="Europe/Stockholm">Europe/Stockholm</option>
+<?php
+	if ($res = $db->query($sql_tz)) {
+		foreach ($res as $row) {
+			echo "<option value='".$row['name']."'";
+			echo ">".$row['name'].": ".$row['utc_offset']."</option>";
+		}
 	}
 ?>
 	</select></td>

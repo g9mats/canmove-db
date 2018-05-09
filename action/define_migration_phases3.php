@@ -17,9 +17,16 @@ if ($version=="") {
 	echo "<p>You must specify a version.</p>";
 	return;
 }
+$tz=$_POST['tz'];
+if ($tz=="") {
+	echo "<p>You must specify a time zone.</p>";
+	return;
+}
 require_once $DBRoot."/lib/DBLink.php";
 $db = new DBLink("localhost", $CMDatabase, $Username);
 $db->connect();
+$sql_tz = "set time zone '".$tz."'";
+$res = $db->execute($sql_tz);
 echo "<script>";
 require_once $DBRoot."/lib/ctx_phase_index.js";
 echo "</script>";
@@ -83,6 +90,7 @@ Select start and stop times and phase type in the listboxes. Next free index wil
 	<input name="dataset_id" value="<?php echo $dataset_id; ?>" type="hidden" />
 	<input id="device_id" name="device_id" value="<?php echo $device_id; ?>" type="hidden" />
 	<input id="version" name="version" value="<?php echo $version; ?>" type="hidden" />
+	<input name="tz" value="<?php echo $tz; ?>" type="hidden" />
 	<table><tr>
 	<td>Start Time:</td>
 	<td><select id="start_log_time" name="start_log_time" required="required">
