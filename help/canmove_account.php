@@ -10,5 +10,5 @@ If you do not have a LUCAT identity your CAnMove account will be set up for loca
 To login you must click on "Cancel CAS login" and then you will instead be asked to provide your CAnMove identity and password.
 </p>
 <p>
-Contact: <b><a target="_blank" href="http://www.lunduniversity.lu.se/lucat/user/biol-msn">Mats Svensson</a></b>
+Contact: <b><a target="_blank" href="http://www.lunduniversity.lu.se/lucat/user/ekol-jba">Johan Bäckman</a></b>
 </p>

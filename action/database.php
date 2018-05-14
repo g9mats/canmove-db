@@ -41,5 +41,5 @@ else
 </ul>
 </p>
 <p>
-Contact: <b><a target="_blank" href="http://www.lunduniversity.lu.se/lucat/user/biol-msn">Mats Svensson</a></b>
+Contact: <b><a target="_blank" href="http://www.lunduniversity.lu.se/lucat/user/ekol-jba">Johan Bäckman</a></b>
 </p>
