@@ -62,7 +62,7 @@ $db->connect();
 	</select></td>
 	</tr><tr>
 	<td>Time Zone:</td>
-	<td><select name="time_zone">
+	<td><select name="time_zone" required="required">
 		<option value="" selected>Select time zone</option>
 		<option value="Europe/Stockholm">Europe/Stockholm</option>
 <?php

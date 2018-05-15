@@ -99,7 +99,7 @@ $time_zone = $rowP['time_zone'];
 	</select></td>
 	</tr><tr>
 	<td>Time Zone:</td>
-	<td><select name="time_zone">
+	<td><select name="time_zone" required="required">
 <?php
 	if ($time_zone == "") {
 		echo "<option value='' selected>Select time zone</option>";
