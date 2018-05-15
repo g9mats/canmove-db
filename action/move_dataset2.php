@@ -52,7 +52,7 @@ Dataset belongs to project "<?php echo $title; ?>".
 	<table><tr>
 	<td>Project:</td>
 	<td><select name="project_id" required="required">
-		<option value="" selected>Select project</option>
+		<option value="" selected>Select new project</option>
 <?php
 	if ($pres = $db->query($sql_project, array($user->uid, $pid))) {
 		foreach ($pres as $prow)
