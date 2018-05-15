@@ -24,7 +24,7 @@ $db->connect();
 ?>
 
 <p>
-Grant dataset role.
+Grant dataset role for any dataset.
 </p>
 <p>
 You can only grant dataset access to users with project access.

@@ -18,7 +18,7 @@ $db->connect();
 ?>
 
 <p>
-Grant project role.
+Grant project role for any project.
 </p>
 
 <!-- Form for selection of project -->

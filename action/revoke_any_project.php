@@ -24,7 +24,7 @@ $db->connect();
 ?>
 
 <p>
-Revoke project role.
+Revoke project role for any project.
 </p>
 <p>
 Any access rights to datasets will be revoked as well.

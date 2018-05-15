@@ -24,7 +24,7 @@ $db->connect();
 ?>
 
 <p>
-Revoke dataset role.
+Revoke dataset role for any dataset.
 </p>
 
 <!-- Form for selection of dataset -->
