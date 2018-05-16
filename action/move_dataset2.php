@@ -63,7 +63,7 @@ Dataset belongs to project "<?php echo $title; ?>".
 	</select></td>
 	</tr><tr>
 	<td></td>
-	<td><button type="submit">Next</button></td>
+	<td><button type="submit">Move</button></td>
 	</tr></table>
 </form>
 
