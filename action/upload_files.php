@@ -112,16 +112,35 @@ The real offset is shown to the right in the list and includes any active DST in
 	<td></td>
 	<td><button type="submit">Upload</button></td>
 	</tr></table>
+	<input id="tzbck" name="tzbck" value="" type="hidden" />
 </form>
 
 <script>
 function show_tz () {
+	var tzlabel=document.getElementById("tzlabel");
+	var tz=document.getElementById("tz");
+	var tzbck=document.getElementById("tzbck");
+	var opt;
+
 	if (document.getElementById("data_status").value == "final") {
-		document.getElementById("tzlabel").style.visibility = "visible";
-		document.getElementById("tz").style.visibility = "visible";
+		if (tz.value == "-") {
+			tz.value = tzbck.value;
+			tz.remove(tz.length);
+			tzbck.value = "";
+		}
+		tzlabel.style.visibility = "visible";
+		tz.style.visibility = "visible";
 	} else {
-		document.getElementById("tzlabel").style.visibility = "hidden";
-		document.getElementById("tz").style.visibility = "hidden";
+		tzlabel.style.visibility = "hidden";
+		tz.style.visibility = "hidden";
+		if (tz.value != "-") {
+			tzbck.value = tz.value;
+			opt=createElement("option");
+			opt.value="-";
+			opt.text="";
+			tz.add(opt);
+			tz.value = "-";
+		}
 	}
 }
 </script>
