@@ -28,7 +28,7 @@ $db->connect();
 <tr>
 <th>First Name</th>
 <th>Last Name</th>
-<th>Operator Id</th>
+<th>Person Id</th>
 </tr>
 
 <?php // For every person

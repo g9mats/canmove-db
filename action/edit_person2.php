@@ -30,7 +30,7 @@ select
 	name,
 	mail
 from drupal_users
-where uid > 0
+where uid > 1
 except
 select
 	d.uid,
@@ -62,6 +62,9 @@ $time_zone = $rowP['time_zone'];
 ?>
 
 <p>
+You must register all persons that need to be referenced as e.g. owners or operators in the database.
+If they shall use the database themselfes you must also create an account according to normal Drupal routines and make a reference from the person record.
+Only accounts without a reference are shown in the list.
 </p>
 
 <!-- Form for update of person -->
@@ -81,11 +84,11 @@ $time_zone = $rowP['time_zone'];
 	<td><select name="drupal_id">
 <?php
 	if ($drupal_id == "")
-		echo "<option value='' selected>Connect to user</option>";
+		echo "<option value='' selected>Connect to user account</option>";
 	else {
 		echo "<option value='".$rowP['drupal_id']."' selected>".
 			$rowP['name']." - ".$rowP['mail']."</option>";
-		echo "<option value=''>Disconnect from user</option>";
+		echo "<option value=''>Disconnect from user account</option>";
 		}
 	if ($resD = $db->query($sql_drupal)) {
 		foreach ($resD as $rowD) {

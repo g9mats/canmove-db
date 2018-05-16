@@ -11,7 +11,7 @@ select
 	name,
 	mail
 from drupal_users
-where uid > 0
+where uid > 1
 except
 select
 	d.uid,
@@ -38,6 +38,9 @@ $db->connect();
 ?>
 
 <p>
+You must register all persons that need to be referenced as e.g. owners or operators in the database.
+If they shall use the database themselfes you must also create an account according to normal Drupal routines and make a reference from the person record.
+Only accounts without a reference are shown in the list.
 </p>
 
 <!-- Form for insert of person -->
@@ -52,7 +55,7 @@ $db->connect();
 	</tr><tr>
 	<td>Drupal User:</td>
 	<td><select name="drupal_id">
-		<option value="" selected>Connect to user</option>
+		<option value="" selected>Connect to user account</option>
 <?php
 		if ($res = $db->query($sql_drupal)) {
 			foreach ($res as $row)

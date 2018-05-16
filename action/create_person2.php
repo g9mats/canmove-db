@@ -16,12 +16,11 @@ if ($last_name=="") {
 }
 if ($drupal_id == "") {
 	$drupal_id = null;
-} else
-	if ($time_zone=="") {
-		echo "<p>You must specify time zone for person with an account.</p>";
-		return;
-	}
-if ($time_zone == "") $time_zone = null;
+}
+if ($time_zone=="") {
+	echo "<p>You must specify a time zone.</p>";
+	return;
+}
 require_once $DBRoot."/lib/DBLink.php";
 
 // SQL: insert person record

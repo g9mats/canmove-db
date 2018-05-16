@@ -23,6 +23,8 @@ $db->connect();
 ?>
 
 <p>
+List of persons with connections to user accounts.
+For a list of all persons use Find Person in the Support menu.
 </p>
 
 <table>
