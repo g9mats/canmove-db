@@ -39,8 +39,11 @@ $db->connect();
 
 <p>
 You must register all persons that need to be referenced as e.g. owners or operators in the database.
-If they shall use the database themselfes you must also create an account according to normal Drupal routines and make a reference from the person record.
-Only accounts without a reference are shown in the list.
+<br/>
+If they shall use the database themselfes you must also create a Drupal account according to normal routines and make a reference from the person record here.
+Only accounts without an active reference are shown in the account list below.
+<br/>
+After a Drupal account has been created it takes to the next day before it is visible on this page.
 </p>
 
 <!-- Form for insert of person -->
