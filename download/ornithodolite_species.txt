@@ -1,0 +1,235 @@
+-1	Balloon	Balloon	Ballong
+1	Corvus corax	Raven	Korp
+2	Corvus cornix	Hooded crow	Grå kråka
+3	Corvus corone	Carrion crow	Svart kråka
+4	Corvus frugilegus	Rook	Råka
+5	Corvus monedula	Jackdaw	Kaja
+7	Pica pica	Magpie	Skata
+8	Nucifraga caryocatactes	Nutcracker	Nötkråka
+11	Garrulus glandarius	Jay	Nötskrika
+13	Pyrrhocorax pyrrhocorax	Chough	Alpkråka
+14	Sturnus vulgaris	Starling	Stare
+17	Oriolus oriolus	Golden oriole	Sommargylling
+18	Coccothraustes coccothraustes	Hawfinch	Stenknäck
+19	Carduelis chloris	Greenfinch	Grönfink
+20	Carduelis carduelis	Goldfinch	Steglits
+21	Carduelis spinus	Siskin	Grönsiska
+22	Serinus citrinella	Citril finch	Citronsiska
+23	Carduelis flammea	Redpoll	Gråsiska
+29	Carduelis flavirostris	Twite	Vinterhämpling
+30	Carduelis cannabina	Linnet	Hämpling
+31	Serinus serinus	Serin	Gulhämpling
+32	Pyrrhula pyrrhula	Bullfinch	Domherre
+34	Carpodacus erythrinus	Rosefinch	Rosenfink
+36	Loxia curvirostra	Crossbill	Mindrekorsnäbb
+41	Fringilla coelebs	Chaffinch	Bofink
+42	Fringilla montifringilla	Brambling	Bergfink
+44	Emberiza citrinella	Yellowhammer	Gulsparv
+50	Emberiza hortulana	Ortolan bunting	Ortolansparv
+55	Emberiza shoeniclus	Reed bunting	Sävsparv
+58	Calcarius lapponicus	Lapland bunting	Lappsparv
+59	Plectrophenax nivalis	Snow bunting	Snösparv
+61	Passer domesticus	House sparrow	Gråsparv
+62	Passer montanus	Tree sparrow	Pilfink
+69	Lullula arborea	Wood lark	Trädlärka
+70	Alauda arvensis	Skylark	Sånglärka
+76	Anthus pratensis	Meadow pipit	Ängspiplärka
+81	Anthus spinoletta	Rock pipit	Skärpiplärka
+88	Motacilla flava	Yellow wagtail	Gulärla
+89	Motacilla cinerea	Grey wagtail	Forsärla
+90	Motacilla alba	Pied wagtail	Sädasärla
+96	Sitta europaea	Eurasian Nuthatch	Nötväcka
+97	Parus major	Great tit	Talgoxe
+99	Cyanistes caeruleus	Blue tit	Blåmes
+114	Lanius excubitor	Great grey shrike	Varfågel
+119	Lanius collurio	Red-backed shrike	Törnskata
+120	Bombycilla garrulus	Waxwing	Sidensvans
+121	Muscicapa striata	Spotted flycatcher	Glasögonflugsnappare
+123	Ficedula hypoleuca	Pied flycatcher	Svartvit flugsnappare
+126	Regulus regulus	Goldcrest	Kungsfågel
+173	Turdus pilaris	Fieldfare	Björktrast
+174	Turdus viscivorus	Mistle thrush	Dubbeltrast
+175	Turdus philomelos	Song thrush	Taltrast
+178	Turdus iliacus	Redwing	Rödvingetrast
+184	Turdus merula	Blackbird	Koltrast
+186	Oenanthe oenanthe	Northern wheatear	Stenskvätta
+203	Luscinia luscinia	Thrush nightingale	Näktergal
+208	Erithacus rubecula	Robin	Rödhake
+210	Prunella modularis	Dunnock	Järnsparv
+220	Hirundo rustica	Swallow	Ladusvala
+222	Delichon urbica	House martin	Hussvala
+223	Riparia riparia	Sand martin	Backsvala
+224	Apus melba	Alpine swift	Alpseglare
+225	Apus apus	Swift	Tornseglare
+227	Caprimulgus europaeus	Nightjar	Nattskärra
+231	Merops apiaster	European Bee-eater	Biätare
+232	Upupa epops	Hoopoe	Härfåge
+233	Coracias garrulus	Roller	Blåkråka
+235	Picus viridis	Green woodpecker	Gröngöling
+237	Dendrocopus major	Gt sp woodpecker	Större hackspett
+238	Dendrocopus minor	Lr sp woodpecker	Mindre hackspett
+240	Cuculus canorus	Cuckoo	Gök
+244	Nyctea scandiaca	Snowy owl	Fjälluggla
+245	Bubo bubo	Eagle owl	Berguv
+248	Aegolius funereus	Tengmalm's owl	Pärluggla
+249	Athene noctua	Little owl	Minervauggla
+250	Asio otus	Long-eared owl	Hornuggla
+251	Asio flammeus	Short-eared owl	Jorduggla
+253	Strix aluco	Tawny owl	Kattuggla
+254	Tyto alba	Barn owl	Tornuggla
+256	Falco rusticolus	Gyrfalcon	Jaktfalk
+259	Falco peregrinus	Peregrine	Pilgrimsfalk
+261	Falco subbuteo	Hobby	Lärkfalk
+262	Falco columbarius	Merlin	Stenfalk
+263	Falco tinnunculus	Kestrel	Tornfalk
+264	Falco naumanni	Lesser kestrel	Rödfalk
+266	Aquila chrysaetus	Golden eagle	Kungsörn
+267	Aquila clanga	Spotted eagle	Större skrikörn
+268	Buteo lagopus	Rough-legged buzzard	Fjällvråk
+269	Buteo buteo	Buzzard	Ormvråk
+271	Circus aeruginosus	Marsh harrier	Brun kärrhök
+272	Circus pygargus	Montagu's harrier	Ängshök
+273	Circus cyaneus	Hen harrier	Blå kärrhök
+274	Circus macrourus	Pallid harrier	Stäpphök
+275	Accipiter gentilis	Goshawk	Duvhök
+277	Accipiter nisus	Sparrowhawk	Sparvhök
+278	Milvus milvus	Red kite	Glada
+279	Milvus migrans	Black kite	Brunglada
+280	Haliaeetus albicilla	White-tailed eagle	Havsörn
+281	Pernis apivorus	Honey buzzard	Bivråk
+282	Gyps fulvus	Griffon vulture	Gåsgam
+283	Neophron percnopterus	Egyptian vulture	Smutsgam
+284	Pandion haliaetus	Osprey	Fiskgjuse
+285	Ciconia ciconia	White stork	Vit stork
+286	Ciconia nigra	Black stork	Svart stork
+287	Platalea leucorodia	Spoonbill	Skedstork
+288	Plegadis falcinellus	Glossy Ibis	Bronsibis
+289	Ardea cinerea	Grey heron	Häger
+290	Ardea purpurea	Purple heron	Purpurhäger
+291	Egretta alba	Great white egret	Ägretthäger
+292	Egretta garzetta	Little egret	Silkeshäger
+293	Bubulcus ibis	Cattle egret	Kohäger
+294	Ardeola ralloides	Squacco heron	Rallhäger
+295	Nycticorax nycticorax	Night heron	Natthäger
+299	Phoenicopterus ruber	Greater flamingo	Flamingo
+300	Cygnus cygnus	Whooper swan	Sångsvan
+301	Cygnus columbianus	Bewick's swan	Mindre sångsvan
+302	Cygnus olor	Mute swan	Knålsvan
+303	Anser anser	Greylag goose	Grågås
+304	Anser albifrons	White-fronted goose	Bläsgås
+305	Anser erythropus	Lesser white-front	Fjällgås
+306	Anser fabalis	Bean goose	Sädgås
+307	Anser brachyrhynchus	Pink-footed goose	Spetsbergsgås
+311	Branta leucopsis	Barnacle goose	Vitkindad gås
+312	Branta bernicla	Brent goose	Prutgås
+313	Branta canadensis	Canada goose	Kanadagås
+315	Tadorna tadorna	Shelduck	Gravand
+317	Anas platyrhynchos	Mallard	Gräsand
+318	Anas strepera	Gadwall	Snatterand
+319	Anas crecca	Teal	Kricka
+321	Anas discors	Blue-winged teal	Blåvingad Årta
+322	Anas querquedula	Garganey	Årta
+323	Anas penelope	Wigeon	Bläsand
+325	Anas acuta	Pintail	Stjärtand
+326	Anas clypeata	Shoveller	Skedand
+328	Aythya ferina	Pochard	Brunand
+329	Aythya nyroca	Ferruginous duck	Vitögd dykand
+330	Aythya fuligula	Tufted duck	Vigg
+331	Aythya marila	Scaup	Bergand
+332	Bucephala clangula	Goldeneye	Knipa
+333	Bucephala albeola	Buffelhead	Buffelhuvudand
+334	Clangula hyemalis	Long-tailed duck	Alfågel
+335	Histrionicus histrionicus	Harlequin duck	Strömand
+337	Somateria mollissima	Eider	Ejder
+338	Somateria spectabilis	King eider	Praktejder
+339	Melanitta nigra	Common scoter	Sjöorre
+340	Melanitta fusca	Velvet scoter	Svärta
+341	Melanitta perspicillata	Surf scoter	Vitnackad svärta
+342	Mergus merganser	Goosander	Storskrake
+343	Mergus serrator	Red-br merganser	Småskrake
+344	Mergus albellus	Smew	Salskrake
+346	Phalacrocorax carbo	Cormorant	Storskarv
+348	Phalacrocorax aristotelis	Shag	Toppskarv
+349	Sula bassana	Gannet	Havssula
+350	Hydrobates pelagicus	Storm-petrel	Stormsvala
+351	Oceanodroma leucorhoa	Leach's fork-tailed petrel	Klykstjärtad stormsvala
+355	Puffinus puffinus	Manx shearwater	Mindre lira
+363	Puffinus griseus	Sooty shearwater	Grålira
+368	Fulmarus glacialis	Fulmar	Stormfågel
+370	Podiceps cristatus	Great crested grebe	Skäggdopping
+371	Podiceps grisegena	Red-necked grebe	Gråhakedopping
+373	Podiceps auritus	Slavonian grebe	Svarthakedopping
+374	Podiceps nigricollis	Black-necked grebe	Svarthalsaddopping
+376	Gavia immer	Great northern diver	Islom
+377	Gavia adamsii	White-billed diver	Vitnäbbad islom
+378	Gavia arctica	Black-throated diver	Storlom
+379	Gavia stellata	Red-throated diver	Smålom
+380	Columba palumbus	Wood pigeon	Ringduva
+381	Columba oenas	Stock dove	Skogsduva
+382	Columba livia	Rock dove	Klippduva
+383	Streptopelia turtur	Turtle dove	Turturduva
+386	Limosa lapponica	Bar-tailed godwit	Myrspov
+387	Limosa limosa	Black-tailed godwit	Rödspov
+388	Numenius arquata	Curlew	Storspov
+389	Numenius phaepos	Whimbrel	Småspov
+393	Scolopax rusticola	Woodcock	Morkulla
+395	Gallinago gallinago	Snipe	Enkelbeckasin
+400	Phalaropus fulicarius	Grey phalarope	Brednäbbad simsnäppa
+401	Phalaropus lobatus	Red-necked phalarope	Smalnäbbad simsnäppa
+402	Arenaria interpres	Turnstone	Roskarl
+403	Calidris canutus	Red knot	Kustsnäppa
+404	Calidris alpina	Dunlin	Kärrsnäppa
+406	Calidris ferruginea	Curlew sandpiper	Spovsnäppa
+407	Calidris minuta	Little stint	Småsnäppa
+409	Calidris temminckii	Temminck's stint	Mosnäppa
+415	Calidris maritima	Purple sandpiper	Skärsnäppa
+416	Calidris alba	Sanderling	Sandlöpare
+417	Philomachus pugnax	Ruff	Brushane
+419	Limicola falcinellus	Broad-billed sandpipiper	Myrsnäppa
+420	Xenus cinereus	Terek sandpiper	Tereksnäppa
+421	Actitis hypoleucos	Common sandpiper	Drillsnäppa
+423	Tringa glareola	Wood sandpiper	Grönbena
+424	Tringa ochropus	Green sandpiper	Skogssnäppa
+428	Tringa totanus	Redshank	Rödbena
+431	Tringa erythropus	Spotted redshank	Svartsnäppa
+432	Tringa nebularia	Greenshank	Gluttsnäppa
+433	Tringa stagnatilis	Marsh sandpiper	Dammsnäppa
+435	Charadrius hiaticula	Ringed plover	Större strandpipare
+438	Charadrius dubius	Little ringed plover	Mindre strandpipare
+440	Pluvialis apricaria	Golden plover	Ljungpipare
+444	Pluvialis squatorola	Grey plover	Kustpipare
+449	Vanellus vanellus	Lapwing	Tofsvipa
+450	Himantopus himantopus	Black-winged stilt	Styltlöpare
+451	Recurvirostra avosetta	Avocet	Skärfläcka
+452	Haematopus ostralegus	Oystercatcher	Strandskata
+461	Grus grus	Crane	Trana
+466	Sterna caspia	Caspian tern	Skräntärna
+467	Sterna sandvicensis	Sandwich tern	Kentsk tärna
+469	Sterna hirundo	Common tern	Fisktärna
+470	Sterna paradisaea	Arctic tern	Silvertärna
+471	Sterna albifrons	Little tern	Småtärna
+477	Larus minutus	Little gull	Dvärgmås
+478	Larus ridibundus	Black-headed gull	Skrattmås
+481	Larus canus	Common gull	Fiskmås
+482	Larus argentatus	Herring gull	Gråtrut
+485	Larus fuscus	Lesser black-backed gull	Silltrut
+486	Larus marinus	Greater black-backed gull	Havstrut
+489	Rissa tridactyla	Kittiwake	Tretåig mås
+491	Stercorarius skua	Great skua	Storlabb
+493	Stercorarius parasiticus	Arctic skua	Labb
+494	Stercorarius longicaudus	Long-tailed skua	Fjällabb
+496	Alca torda	Razorbill	Tordmule
+498	Uria aalge	Guillemot	Sillgrissla
+500	Uria lomvia	Brünnich's guillemot	Spetsbergsgrissla
+501	Cepphus grylle	Black guillemot	Tobisgrissla
+503	Fratercula arctica	Puffin	Lunnefågel
+511	Fulica atra	Coot	Sothöna
+516	Lagopus mutus	Ptarmigan	Fjällripa
+517	Phasianus colchicus	Pheasant	Fasan
+518	Perdix perdix	Grey partridge	Rapphöna
+519	Alectoris rufa	Red-legged partridge	Rödhöna
+520	Coturnix coturnix	Quail	Vaktel
+599	Gypaetus barbatus	Lammergeier	Lammgam
+600	Dryocopus martius	Black woodpecker	Spillkråka
+601	Falco eleonorae	Eleonora's falcon	Eleonorfalk
+602	Aquila pomarina	Lesser spotted eagle	Mindre skrikörn
