@@ -10,12 +10,6 @@ select
 	dataset_id,
 	title
 from p_dataset
-where dataset_id in (
-	select dataset_id
-	from p_dataset_role
-	group by dataset_id
-	having count(*) > 1
-	)
 order by title
 ";
 
