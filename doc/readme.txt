@@ -98,7 +98,7 @@ r_person
 	on screen DBA Access/Create Person.
 r_data/r_data_alias
 	Administration of variables and aliases. See more instructions on screen
-	DBA Management/Create Variable.
+	DBA Management/Variable Help.
 r_data_subset
 	Data subset identities and name shown to users. Use psql.
 r_data_type
@@ -107,7 +107,7 @@ r_storage_type
 	Storage type identities and name shown to users. Use psql.
 x_context
 	Contols the behaviour of many routines. See more instruction on screen
-	System Development/Create Context.
+	System Development/System Context Help.
 x_file_name_template
 	Register Files templates. Use psql.
 x_table
@@ -144,8 +144,9 @@ of the code.
 - It makes it easier to upgrade Drupal although you still need to handle the
 "empty" nodes and their menu links.
 
-For more details of Drupal installation see separate file drupal.txt.
+OTHER
+=====
+For more details of Drupal installation see separate file <HOME>/drupal.txt.
 
 All files has not been uploaded to GitHub since they are specific to the
-installation at LU. For more information on those see management.txt in
-this catalog.
+installation at LU. For more information on those see <HOME>/management.txt.
