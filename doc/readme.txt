@@ -37,7 +37,9 @@ from the web (via Drupal) here after called <WEB> and the other will be called
 <HOME>/doc		System documentation
 <HOME>/etl		Data loading routines executed manually by DBA
 <HOME>/lib		Soft link pointing to <WEB>/lib
+<HOME>/source	Tree with all catalogs from both trees to maintain git repo
 <HOME>/sync		Reference data update routines executed manually by DBA
+<HOME>/util		Utilites to simplify the daily work for the developer
 <HOME>/ws		Web Service software/configuration/logs (used by WRAM at SLU)
 
 CONFIGURATION
@@ -65,11 +67,12 @@ script file with the same name and a sql suffix. The objects are grouped into
 types by use of a prefix letter.
 
 d	Actual movement data
+i	Used by the WRAM interface
 l	Loading information. Log of all data files uploaded and also work space.
 p	Meta data like project, dataset and access information
 r	Reference data like e.g. species
 s	Stored functions
-v	Views
+v	Views, just a few to simplify queries in psql
 x	System internal objects
 
 Objects can also have a second three letter prefix. This is a module code that
@@ -84,6 +87,34 @@ trr		Tracking Radar
 
 To make an initial load of some of the reference tables run the dump file
 <HOME>/etl/r_data/r_canmove.pgd in psql.
+
+SYSTEM CONTROL TABLES
+=====================
+Information on some tables that are rather part of the system and controls
+its behaviour than part of the CAnMove database
+
+r_person
+	Administration of persons/connections to accounts. See more instructions
+	on screen DBA Access/Create Person.
+r_data/r_data_alias
+	Administration of variables and aliases. See more instructions on screen
+	DBA Management/Create Variable.
+r_data_subset
+	Data subset identities and name shown to users. Use psql.
+r_data_type
+	Data type identities and name shown to users. Use psql.
+r_storage_type
+	Storage type identities and name shown to users. Use psql.
+x_context
+	Contols the behaviour of many routines. See more instruction on screen
+	System Development/Create Context.
+x_file_name_template
+	Register Files templates. Use psql.
+x_table
+	Intended for table version control, not really used other than in the
+	scripts in <HOME>/base.
+x_table_header
+	To produce prettier listing of variables. Use psql.
 
 DRUPAL
 ======
@@ -113,5 +144,8 @@ of the code.
 - It makes it easier to upgrade Drupal although you still need to handle the
 "empty" nodes and their menu links.
 
-For more details see separate file drupal.txt.
+For more details of Drupal installation see separate file drupal.txt.
 
+All files has not been uploaded to GitHub since they are specific to the
+installation at LU. For more information on those see management.txt in
+this catalog.
