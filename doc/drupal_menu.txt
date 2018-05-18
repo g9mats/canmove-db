@@ -1,0 +1,83 @@
+Level	Title	Alias	anonymous user	authenticated user	developer
+1	Public Information	db/action/public_information	view	view	view:update:delete
+2	List All Projects	db/action/list_all_projects	view	view	view:update:delete
+2	List All Datasets	db/action/list_all_datasets	view	view	view:update:delete
+2	Show Dataset Information	db/action/show_dataset_information	view	view	view:update:delete
+2	CAnMove Statistics	db/action/canmove_statistics	view	view	view:update:delete
+2	CAnMove Top List	db/action/canmove_top_list		view	view:update:delete
+1	Project	db/action/project		view	view:update:delete
+2	List Projects	db/action/list_projects		view	view:update:delete
+2	Show Project	db/action/show_project		view	view:update:delete
+2	Create Project	db/action/create_project		view	view:update:delete
+2	Edit Project	db/action/edit_project		view	view:update:delete
+2	Delete Project	db/action/delete_project		view	view:update:delete
+1	Dataset	db/action/dataset		view	view:update:delete
+2	List Datasets	db/action/list_datasets		view	view:update:delete
+2	Show Dataset	db/action/show_dataset		view	view:update:delete
+2	Create Dataset	db/action/create_dataset		view	view:update:delete
+2	Edit Dataset	db/action/edit_dataset		view	view:update:delete
+2	Edit Taxa	db/action/edit_taxa		view	view:update:delete
+2	Move Dataset	db/action/move_dataset			view:update:delete
+2	Delete Dataset	db/action/delete_dataset		view	view:update:delete
+1	Data Input	db/action/data_input		view	view:update:delete
+2	List Files	db/action/list_files		view	view:update:delete
+2	Todo List	db/action/todo_list		view	view:update:delete
+2	Upload Files	db/action/upload_files		view	view:update:delete
+2	Register Files	db/action/register_files		view	view:update:delete
+2	- Using Template	db/action/register_files_using_template		view	view:update:delete
+2	Import Files	db/action/import_files		view	view:update:delete
+2	Validate Data	db/action/validate_data		view	view:update:delete
+2	Load Data	db/action/load_data		view	view:update:delete
+1	Data Delete	db/action/data_delete		view	view:update:delete
+2	Delete Files	db/action/delete_files		view	view:update:delete
+2	Delete Data	db/action/delete_data		view	view:update:delete
+1	Data Edit	db/action/data_edit		view	view:update:delete
+2	List File Remarks	db/action/list_file_remarks		view	view:update:delete
+2	Edit File Remarks	db/action/edit_file_remarks		view	view:update:delete
+2	List Migration Phases	db/action/list_migration_phases		view	view:update:delete
+2	Define Migration Phases	db/action/define_migration_phases		view	view:update:delete
+1	Data View	db/action/data_view		view	view:update:delete
+2	List Variables	db/action/list_variables		view	view:update:delete
+2	List Animals	db/action/list_animals		view	view:update:delete
+2	List Captures	db/action/list_captures		view	view:update:delete
+2	List Devices	db/action/list_devices		view	view:update:delete
+1	Data Output	db/action/data_output		view	view:update:delete
+2	Download Files	db/action/download_files		view	view:update:delete
+2	Export Data	db/action/export_data		view	view:update:delete
+2	Pool Data	db/action/pool_data			view:update:delete
+1	Data Access	db/action/data_access		view	view:update:delete
+2	Grant Project	db/action/grant_project		view	view:update:delete
+2	Revoke Project	db/action/revoke_project		view	view:update:delete
+2	Grant Dataset	db/action/grant_dataset		view	view:update:delete
+2	Revoke Dataset	db/action/revoke_dataset		view	view:update:delete
+1	DBA Access	db/action/dba_access			view:update:delete
+2	List Persons	db/action/list_persons			view:update:delete
+2	Create Person	db/action/create_person			view:update:delete
+2	Edit Person	db/action/edit_person			view:update:delete
+2	Grant Any Project	db/action/grant_any_project			view:update:delete
+2	Revoke Any Project	db/action/revoke_any_project			view:update:delete
+2	Grant Any Dataset	db/action/grant_any_dataset			view:update:delete
+2	Revoke Any Dataset	db/action/revoke_any_dataset			view:update:delete
+1	DBA Management	db/action/dba_management		view	view:update:delete
+2	Create Variable	db/action/create_variable			view:update:delete
+2	Edit Variable	db/action/edit_variable			view:update:delete
+2	Edit Variable No	db/action/edit_variable_no			view:update:delete
+2	Create Variable Alias	db/action/create_variable_alias			view:update:delete
+2	Edit Variable Alias	db/action/edit_variable_alias			view:update:delete
+2	Create Device Model	db/action/create_device_model			view:update:delete
+2	Edit Device Model	db/action/edit_device_model			view:update:delete
+1	System Development	db/action/system_development			view:update:delete
+2	List System Context	db/action/list_system_context			view:update:delete
+2	Create System Context	db/action/create_system_context			view:update:delete
+1	Support	db/action/support		view	view:update:delete
+2	Download Template	db/action/download_template		view	view:update:delete
+2	Customize Template	db/action/customize_template		view	view:update:delete
+2	Customize Protocol	db/action/customize_protocol		view	view:update:delete
+2	List All Variables	db/action/list_all_variables		view	view:update:delete
+2	Download All Variables	db/action/download_all_variables		view	view:update:delete
+2	Find Person	db/action/find_person		view	view:update:delete
+2	Find Device Model	db/action/find_device_model		view	view:update:delete
+2	Support Files	db/action/support_files		view	view:update:delete
+1	Settings	db/action/settings		view	view:update:delete
+2	Edit Settings	db/action/edit_settings		view	view:update:delete
+1	Help	db/help/help	view	view	view:update:delete
