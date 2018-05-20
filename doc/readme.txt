@@ -86,7 +86,7 @@ orn		Ornithodolite
 trr		Tracking Radar
 
 To make an initial load of some of the reference tables run the dump file
-<HOME>/etl/r_data/r_canmove.pgd in psql.
+<HOME>/etl/r_dump.pgd in psql.
 
 SYSTEM CONTROL TABLES
 =====================
